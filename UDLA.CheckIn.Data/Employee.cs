@@ -9,6 +9,7 @@ namespace UDLA.CheckIn.Data
         public int Id { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
-        public IEnumerable<RegisterEntry> RegisterEntries { get; set; }
+
+        public List<RegisterEntry> RegisterEntries { get; set; }
     }
 }

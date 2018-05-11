@@ -8,23 +8,23 @@ namespace UDLA.CheckIn.WebApi.Controllers
     [Route("api/[controller]")]
     public class RegisterController : Controller
     {
-        private readonly IRepository<Employee> employeeRepository;
+        private readonly IRepository<RegisterEntry> registerEntryRepository;
 
-        public RegisterController(IRepository<Employee> employeeRepository)
+        public RegisterController(IRepository<RegisterEntry> registerEntryRepository)
         {
-            this.employeeRepository = employeeRepository;
+            this.registerEntryRepository = registerEntryRepository;
         }
 
         [HttpGet]
-        public IEnumerable<Employee> Get()
+        public IEnumerable<RegisterEntry> Get()
         {
-            return employeeRepository.GetAll();
+            return registerEntryRepository.GetAll();
         }
 
         [HttpPost]
-        public void Post([FromBody] Employee employee)
+        public void Post([FromBody] RegisterEntry registerEntry)
         {
-            employeeRepository.Add(employee);
+            registerEntryRepository.Add(registerEntry);
         }
     }
 }

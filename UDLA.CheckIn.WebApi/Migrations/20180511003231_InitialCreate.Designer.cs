@@ -11,9 +11,10 @@ using UDLA.Checkin.Repository;
 namespace UDLA.CheckIn.WebApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180511003231_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,7 +42,9 @@ namespace UDLA.CheckIn.WebApi.Migrations
 
                     b.Property<DateTimeOffset>("DateCreated");
 
-                    b.Property<int>("EmployeeId");
+                    b.Property<int?>("EmployeeId");
+
+                    b.Property<int>("EmplyoeeId");
 
                     b.HasKey("Id");
 
@@ -54,8 +57,7 @@ namespace UDLA.CheckIn.WebApi.Migrations
                 {
                     b.HasOne("UDLA.CheckIn.Data.Employee", "Employee")
                         .WithMany("RegisterEntries")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("EmployeeId");
                 });
 #pragma warning restore 612, 618
         }

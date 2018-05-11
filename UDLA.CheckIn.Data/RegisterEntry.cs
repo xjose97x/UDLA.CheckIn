@@ -8,6 +8,8 @@ namespace UDLA.CheckIn.Data
         [Key]
         public int Id { get; set; }
         public DateTimeOffset DateCreated { get; set; }
+
+        public int EmployeeId { get; set; }
         public Employee Employee { get; set; }
     }
 }

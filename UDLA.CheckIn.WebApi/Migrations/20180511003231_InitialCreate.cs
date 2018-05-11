@@ -30,7 +30,8 @@ namespace UDLA.CheckIn.WebApi.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DateCreated = table.Column<DateTimeOffset>(nullable: false),
-                    EmployeeId = table.Column<int>(nullable: true)
+                    EmployeeId = table.Column<int>(nullable: true),
+                    EmplyoeeId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

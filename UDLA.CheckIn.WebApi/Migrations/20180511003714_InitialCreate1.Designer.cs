@@ -7,13 +7,12 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 using UDLA.Checkin.Repository;
-using UDLA.CheckIn.WebApi;
 
 namespace UDLA.CheckIn.WebApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180510044004_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20180511003714_InitialCreate1")]
+    partial class InitialCreate1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +21,7 @@ namespace UDLA.CheckIn.WebApi.Migrations
                 .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("UDLA.CheckIn.WebApi.Models.Employee", b =>
+            modelBuilder.Entity("UDLA.CheckIn.Data.Employee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -36,14 +35,14 @@ namespace UDLA.CheckIn.WebApi.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("UDLA.CheckIn.WebApi.Models.RegisterEntry", b =>
+            modelBuilder.Entity("UDLA.CheckIn.Data.RegisterEntry", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTimeOffset>("DateCreated");
 
-                    b.Property<int?>("EmployeeId");
+                    b.Property<int>("EmployeeId");
 
                     b.HasKey("Id");
 
@@ -52,11 +51,12 @@ namespace UDLA.CheckIn.WebApi.Migrations
                     b.ToTable("RegisterEntries");
                 });
 
-            modelBuilder.Entity("UDLA.CheckIn.WebApi.Models.RegisterEntry", b =>
+            modelBuilder.Entity("UDLA.CheckIn.Data.RegisterEntry", b =>
                 {
-                    b.HasOne("UDLA.CheckIn.WebApi.Models.Employee", "Employee")
+                    b.HasOne("UDLA.CheckIn.Data.Employee", "Employee")
                         .WithMany("RegisterEntries")
-                        .HasForeignKey("EmployeeId");
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
