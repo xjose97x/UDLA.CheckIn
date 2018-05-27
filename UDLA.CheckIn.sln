@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A4294C49-5B02-4BB0-A9E1-6F6A8B457208}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5123EFD1-7036-4CC0-8F8F-9ECE4B714AD2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UDLA.CheckIn.Data", "src\UDLA.CheckIn.Data\UDLA.CheckIn.Data.csproj", "{AFEACE36-4D66-4CA4-B989-96EF697B52AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UDLA.Checkin.Repository", "src\UDLA.Checkin.Repository\UDLA.Checkin.Repository.csproj", "{9D0862BF-84B6-482E-BA0F-1476090B3417}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UDLA.CheckIn.WebApi", "src\UDLA.CheckIn.WebApi\UDLA.CheckIn.WebApi.csproj", "{E89E0950-8A94-4CA2-8720-57323517AE43}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udla.CheckIn.Services", "src\Udla.CheckIn.Services\Udla.CheckIn.Services.csproj", "{2221C65A-4C80-4BAE-AC87-B43EE20CB105}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFEACE36-4D66-4CA4-B989-96EF697B52AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFEACE36-4D66-4CA4-B989-96EF697B52AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFEACE36-4D66-4CA4-B989-96EF697B52AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFEACE36-4D66-4CA4-B989-96EF697B52AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D0862BF-84B6-482E-BA0F-1476090B3417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D0862BF-84B6-482E-BA0F-1476090B3417}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D0862BF-84B6-482E-BA0F-1476090B3417}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D0862BF-84B6-482E-BA0F-1476090B3417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E89E0950-8A94-4CA2-8720-57323517AE43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E89E0950-8A94-4CA2-8720-57323517AE43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E89E0950-8A94-4CA2-8720-57323517AE43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E89E0950-8A94-4CA2-8720-57323517AE43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2221C65A-4C80-4BAE-AC87-B43EE20CB105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2221C65A-4C80-4BAE-AC87-B43EE20CB105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2221C65A-4C80-4BAE-AC87-B43EE20CB105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2221C65A-4C80-4BAE-AC87-B43EE20CB105}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AFEACE36-4D66-4CA4-B989-96EF697B52AB} = {A4294C49-5B02-4BB0-A9E1-6F6A8B457208}
+		{9D0862BF-84B6-482E-BA0F-1476090B3417} = {A4294C49-5B02-4BB0-A9E1-6F6A8B457208}
+		{E89E0950-8A94-4CA2-8720-57323517AE43} = {A4294C49-5B02-4BB0-A9E1-6F6A8B457208}
+		{2221C65A-4C80-4BAE-AC87-B43EE20CB105} = {A4294C49-5B02-4BB0-A9E1-6F6A8B457208}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11F663A1-9E76-48DA-8845-B0C1C1D0E93D}
+	EndGlobalSection
+EndGlobal
