@@ -4,13 +4,13 @@ namespace UDLA.CheckIn.Data
 {
     public class Faculty : Entity
     {
-        public string Nombre { get; set; }
-        public virtual ICollection<Employee> Employee { get; set; }
+        public string Name { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
 
-        public Faculty(int id, string nombre)
+        public Faculty(int id, string name)
         {
             Id = id;
-            Nombre = nombre;
+            Name = name;
         }
     }
 }

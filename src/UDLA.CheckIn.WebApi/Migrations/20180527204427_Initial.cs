@@ -14,7 +14,7 @@ namespace UDLA.CheckIn.WebApi.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nombre = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -69,7 +69,7 @@ namespace UDLA.CheckIn.WebApi.Migrations
 
             migrationBuilder.InsertData(
                 table: "Faculties",
-                columns: new[] { "Id", "Nombre" },
+                columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
                     { 1, "Facultad de Ingenieria y Ciencias Agropecuarias" },
@@ -92,10 +92,10 @@ namespace UDLA.CheckIn.WebApi.Migrations
                 columns: new[] { "Id", "DateCreated", "EmployeeId" },
                 values: new object[,]
                 {
-                    { 1, new DateTimeOffset(new DateTime(2018, 5, 27, 15, 25, 19, 826, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), 1 },
-                    { 2, new DateTimeOffset(new DateTime(2018, 5, 26, 15, 25, 19, 826, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), 1 },
-                    { 3, new DateTimeOffset(new DateTime(2018, 5, 27, 15, 25, 19, 826, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), 2 },
-                    { 4, new DateTimeOffset(new DateTime(2018, 5, 26, 15, 25, 19, 826, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), 2 }
+                    { 1, new DateTimeOffset(new DateTime(2018, 5, 27, 15, 44, 26, 675, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), 1 },
+                    { 2, new DateTimeOffset(new DateTime(2018, 5, 26, 15, 44, 26, 675, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), 1 },
+                    { 3, new DateTimeOffset(new DateTime(2018, 5, 27, 15, 44, 26, 675, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), 2 },
+                    { 4, new DateTimeOffset(new DateTime(2018, 5, 26, 15, 44, 26, 675, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), 2 }
                 });
 
             migrationBuilder.CreateIndex(

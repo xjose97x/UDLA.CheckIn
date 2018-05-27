@@ -6,6 +6,6 @@ namespace UDLA.CheckIn.WebApi.Dto
     {
         public int Id { get; set; }
         [Required]
-        public string Nombre { get; set; }
+        public string Name { get; set; }
     }
 }

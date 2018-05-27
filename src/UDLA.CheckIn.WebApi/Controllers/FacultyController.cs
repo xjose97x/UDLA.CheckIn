@@ -5,6 +5,7 @@ using AutoMapper;
 using UDLA.CheckIn.Data;
 using UDLA.Checkin.Repository;
 using Microsoft.AspNetCore.Mvc;
+using UDLA.Checkin.Repository.Specifications;
 using UDLA.CheckIn.WebApi.Configuration;
 using UDLA.CheckIn.WebApi.Dto;
 using UDLA.CheckIn.WebApi.Models;
@@ -15,11 +16,13 @@ namespace UDLA.CheckIn.WebApi.Controllers
     public class FacultyController : Controller
     {
         private readonly IRepository<Faculty> facultyRepository;
+        private readonly IRepository<Employee> employeeRepository;
         private readonly IMapper mapper;
 
-        public FacultyController(IRepository<Faculty> facultyRepository, IMapper mapper)
+        public FacultyController(IRepository<Faculty> facultyRepository, IRepository<Employee> employeeRepository, IMapper mapper)
         {
             this.facultyRepository = facultyRepository;
+            this.employeeRepository = employeeRepository;
             this.mapper = mapper;
         }
 
@@ -81,5 +84,21 @@ namespace UDLA.CheckIn.WebApi.Controllers
             await facultyRepository.Delete(faculty);
             return NoContent();
         }
+
+        #region Employees
+
+        [HttpGet("{facultyId:int}/employees")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<EmployeeDto>))]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> GetEntryRecords(int facultyId)
+        {
+            var employees = await employeeRepository.List(new EmployeeByFacultyIdSpecification(facultyId));
+            if (employees == null)
+            {
+                return NotFound();
+            }
+            return Ok(mapper.Map<IEnumerable<EmployeeDto>>(employees));
+        }
+        #endregion
     }
 }

@@ -61,10 +61,10 @@ namespace UDLA.CheckIn.WebApi.Migrations
                     b.ToTable("EntryRecords");
 
                     b.HasData(
-                        new { Id = 1, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 27, 15, 25, 19, 826, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 1 },
-                        new { Id = 2, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 26, 15, 25, 19, 826, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 1 },
-                        new { Id = 3, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 27, 15, 25, 19, 826, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 2 },
-                        new { Id = 4, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 26, 15, 25, 19, 826, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 2 }
+                        new { Id = 1, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 27, 15, 44, 26, 675, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 1 },
+                        new { Id = 2, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 26, 15, 44, 26, 675, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 1 },
+                        new { Id = 3, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 27, 15, 44, 26, 675, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 2 },
+                        new { Id = 4, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 26, 15, 44, 26, 675, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 2 }
                     );
                 });
 
@@ -74,23 +74,23 @@ namespace UDLA.CheckIn.WebApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Nombre");
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 
                     b.ToTable("Faculties");
 
                     b.HasData(
-                        new { Id = 1, Nombre = "Facultad de Ingenieria y Ciencias Agropecuarias" },
-                        new { Id = 2, Nombre = "Facultad de Odontologia" },
-                        new { Id = 3, Nombre = "Escuela de Hospitalidad y Turismo" }
+                        new { Id = 1, Name = "Facultad de Ingenieria y Ciencias Agropecuarias" },
+                        new { Id = 2, Name = "Facultad de Odontologia" },
+                        new { Id = 3, Name = "Escuela de Hospitalidad y Turismo" }
                     );
                 });
 
             modelBuilder.Entity("UDLA.CheckIn.Data.Employee", b =>
                 {
                     b.HasOne("UDLA.CheckIn.Data.Faculty", "Faculty")
-                        .WithMany("Employee")
+                        .WithMany("Employees")
                         .HasForeignKey("FacultyId");
                 });
 
