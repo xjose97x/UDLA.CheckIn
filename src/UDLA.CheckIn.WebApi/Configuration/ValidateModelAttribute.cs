@@ -11,6 +11,7 @@ namespace UDLA.CheckIn.WebApi.Configuration
             {
                 context.Result = new BadRequestObjectResult(context.ModelState);
             }
+            base.OnActionExecuting(context);
         }
     }
 }
