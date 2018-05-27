@@ -115,7 +115,7 @@ namespace UDLA.CheckIn.WebApi.Controllers
             return CreatedAtAction(nameof(GetEntryRecordById), new { employeeId = entryRecord.EmployeeId, entryId = entryRecord.Id }, mapper.Map<EntryRecordDto>(entryRecord));
         }
 
-        [HttpGet("{employeeId:int}/entryrecords/{entryId:int}", Name = nameof(GetEntryRecordById))]
+        [HttpGet("{employeeId:int}/entryrecords/{entryId:int}")]
         [ProducesResponseType(200, Type = typeof(EntryRecordDto))]
         [ProducesResponseType(404)]
         public async Task<IActionResult> GetEntryRecordById(int employeeId, int entryId)
@@ -132,6 +132,24 @@ namespace UDLA.CheckIn.WebApi.Controllers
             }
 
             return Ok(mapper.Map<EntryRecordDto>(entry));
+        }
+
+        [HttpDelete("{employeeId:int}/entryrecords/{entryId:int}")]
+        [ProducesResponseType(200, Type = typeof(EntryRecordDto))]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> DeleteEntryRecordById(int employeeId, int entryId)
+        {
+            if (!employeeRepository.TryGetById(employeeId, out var _))
+            {
+                return NotFound();
+            }
+            if (!entryRecordRepository.TryGetById(entryId, out var entryRecord))
+            {
+                return NotFound();
+            }
+
+            await entryRecordRepository.Delete(entryRecord);
+            return NoContent();
         }
 
         #endregion
