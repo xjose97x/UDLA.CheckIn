@@ -7,6 +7,7 @@ using UDLA.CheckIn.WebApi.Dto;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using UDLA.Checkin.Repository.Specifications;
+using UDLA.CheckIn.WebApi.Configuration;
 using UDLA.CheckIn.WebApi.Models;
 
 namespace UDLA.CheckIn.WebApi.Controllers
@@ -60,27 +61,19 @@ namespace UDLA.CheckIn.WebApi.Controllers
         public async Task<IActionResult> Post([FromBody] EmployeeDto employeeDto)
         {
             Employee employee = mapper.Map<Employee>(employeeDto);
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             await employeeRepository.Add(employee);
 
             return CreatedAtAction(nameof(GetById), new { id = employee.Id }, employee);
         }
 
         [HttpPut]
+        [ValidateModel]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(200)]
         public async Task<IActionResult> Put([FromBody] EmployeeDto employeeDto)
         {
             Employee employee = mapper.Map<Employee>(employeeDto);
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
             if (!employeeRepository.TryGetById(employee.Id, out Employee _))
             {
                 return NotFound();
