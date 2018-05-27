@@ -6,12 +6,12 @@ namespace UDLA.Checkin.Repository.Specifications
     {
         public EmployeeWithRegisterEntriesSpecification(int id) : base(e => e.Id == id)
         {
-            AddInclude(e => e.RegisterEntries);
+            AddInclude(e => e.EntryRecords);
         }
 
         public EmployeeWithRegisterEntriesSpecification() : base(e => true)
         {
-            AddInclude(e => e.RegisterEntries);
+            AddInclude(e => e.EntryRecords);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 namespace UDLA.CheckIn.Data
 {
@@ -7,6 +6,13 @@ namespace UDLA.CheckIn.Data
     {
         public string Name { get; set; }
         public string LastName { get; set; }
-        public virtual ICollection<RegisterEntry> RegisterEntries { get; set; }
+        public virtual ICollection<EntryRecord> EntryRecords { get; set; }
+
+        public Employee(int id, string name, string lastName)
+        {
+            Id = id;
+            Name = name;
+            LastName = lastName;
+        }
     }
 }

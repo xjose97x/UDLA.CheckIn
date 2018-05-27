@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using AutoMapper;
+using Newtonsoft.Json;
 using UDLA.Checkin.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,12 +33,15 @@ namespace UDLA.CheckIn.WebApi
             services
                 .AddMvc()
                 .AddXmlSerializerFormatters()
+                .AddXmlDataContractSerializerFormatters()
                 .AddJsonOptions(o =>
                 {
                     o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                     o.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                    o.SerializerSettings.Formatting = Formatting.Indented;
                 });
 
+            services.AddAutoMapper();
 
             services.AddSwaggerGen(c =>
             {
