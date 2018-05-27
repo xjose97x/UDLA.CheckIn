@@ -10,6 +10,7 @@ namespace UDLA.CheckIn.WebApi.Configuration
         {
             CreateMap<Employee, EmployeeDto>().ReverseMap();
             CreateMap<EntryRecord, EntryRecordDto>().ReverseMap();
+            CreateMap<Faculty, FacultyDto>().ReverseMap();
         }
     }
 }

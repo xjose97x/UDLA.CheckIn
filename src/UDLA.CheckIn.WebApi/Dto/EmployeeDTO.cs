@@ -9,5 +9,6 @@ namespace UDLA.CheckIn.WebApi.Dto
         public string Name { get; set; }
         [Required]
         public string LastName { get; set; }
+        public int? FacultyId { get; set; }
     }
 }

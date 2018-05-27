@@ -25,17 +25,21 @@ namespace UDLA.CheckIn.WebApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("FacultyId");
+
                     b.Property<string>("LastName");
 
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FacultyId");
+
                     b.ToTable("Employees");
 
                     b.HasData(
-                        new { Id = 1, LastName = "Escudero", Name = "José" },
-                        new { Id = 2, LastName = "Trump", Name = "Donald" },
+                        new { Id = 1, FacultyId = 1, LastName = "Escudero", Name = "José" },
+                        new { Id = 2, FacultyId = 3, LastName = "Trump", Name = "Donald" },
                         new { Id = 3, LastName = "Obama", Name = "Barack" }
                     );
                 });
@@ -57,11 +61,37 @@ namespace UDLA.CheckIn.WebApi.Migrations
                     b.ToTable("EntryRecords");
 
                     b.HasData(
-                        new { Id = 1, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 27, 11, 42, 11, 708, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 1 },
-                        new { Id = 2, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 26, 11, 42, 11, 709, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 1 },
-                        new { Id = 3, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 27, 11, 42, 11, 709, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 2 },
-                        new { Id = 4, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 26, 11, 42, 11, 709, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 2 }
+                        new { Id = 1, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 27, 15, 25, 19, 826, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 1 },
+                        new { Id = 2, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 26, 15, 25, 19, 826, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 1 },
+                        new { Id = 3, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 27, 15, 25, 19, 826, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 2 },
+                        new { Id = 4, DateCreated = new DateTimeOffset(new DateTime(2018, 5, 26, 15, 25, 19, 826, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)), EmployeeId = 2 }
                     );
+                });
+
+            modelBuilder.Entity("UDLA.CheckIn.Data.Faculty", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nombre");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Faculties");
+
+                    b.HasData(
+                        new { Id = 1, Nombre = "Facultad de Ingenieria y Ciencias Agropecuarias" },
+                        new { Id = 2, Nombre = "Facultad de Odontologia" },
+                        new { Id = 3, Nombre = "Escuela de Hospitalidad y Turismo" }
+                    );
+                });
+
+            modelBuilder.Entity("UDLA.CheckIn.Data.Employee", b =>
+                {
+                    b.HasOne("UDLA.CheckIn.Data.Faculty", "Faculty")
+                        .WithMany("Employee")
+                        .HasForeignKey("FacultyId");
                 });
 
             modelBuilder.Entity("UDLA.CheckIn.Data.EntryRecord", b =>
