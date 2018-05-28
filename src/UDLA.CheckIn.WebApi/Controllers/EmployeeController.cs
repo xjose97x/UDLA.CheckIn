@@ -64,9 +64,11 @@ namespace UDLA.CheckIn.WebApi.Controllers
         public async Task<IActionResult> Put([FromBody] EmployeeDto employeeDto)
         {
             Employee employee = mapper.Map<Employee>(employeeDto);
-            if (!employeeRepository.TryGetById(employee.Id, out Employee _))
             {
-                return NotFound();
+                if (!employeeRepository.TryGetById(employee.Id, out Employee _))
+                {
+                    return NotFound();
+                }
             }
             await employeeRepository.Update(employee);
             return Ok();

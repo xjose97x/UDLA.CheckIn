@@ -25,7 +25,12 @@ namespace UDLA.Checkin.Repository
         public bool TryGetById(int id, out T value)
         {
             value = dbContext.Set<T>().Find(id);
-            return value != null;
+            if (value == null)
+            {
+                return false;
+            }
+            dbContext.Entry(value).State = EntityState.Detached;
+            return true;
         }
 
         public async Task<T> GetSingleBySpec(ISpecification<T> spec)

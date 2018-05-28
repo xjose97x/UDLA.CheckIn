@@ -14,6 +14,14 @@ const routes: Routes = [{
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
+  }, 
+  {
+    path: 'forms',
+    loadChildren: './forms/forms.module#FormsModule',
+  }, 
+  {
+    path: 'tables',
+    loadChildren: './tables/tables.module#TablesModule',
   }, {
     path: '**',
     redirectTo: 'dashboard'

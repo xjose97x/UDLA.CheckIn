@@ -31,6 +31,7 @@ namespace UDLA.CheckIn.WebApi
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             services
+                .AddCors()
                 .AddMvc()
                 .AddXmlSerializerFormatters()
                 .AddXmlDataContractSerializerFormatters()
@@ -66,6 +67,7 @@ namespace UDLA.CheckIn.WebApi
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
             }
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
             app.UseMvc();
 
             app.UseSwagger();

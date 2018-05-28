@@ -7,6 +7,7 @@ import { of as observableOf } from 'rxjs';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { DataModule } from './data/data.module';
 import { AnalyticsService } from './utils/analytics.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const socialLinks = [
   {
@@ -78,6 +79,7 @@ export const NB_CORE_PROVIDERS = [
 @NgModule({
   imports: [
     CommonModule,
+    HttpClientModule
   ],
   exports: [
     NbAuthModule,

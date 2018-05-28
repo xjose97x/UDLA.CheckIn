@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq.Expressions;
-using UDLA.CheckIn.Data;
+﻿using UDLA.CheckIn.Data;
 
 namespace UDLA.Checkin.Repository.Specifications
 {
