@@ -23,12 +23,13 @@ import { FacultyDto } from '../model/facultyDto';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
+import { environment } from '../../../../../environments/environment';
 
 
 @Injectable()
 export class FacultyService {
 
-    protected basePath = 'http://localhost:50718';
+    protected basePath = environment.apiUrl;
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
