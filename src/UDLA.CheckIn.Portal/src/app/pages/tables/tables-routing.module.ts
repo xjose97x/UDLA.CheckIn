@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TablesComponent } from './tables.component';
 import { TablesFacultadesComponent } from './tables-facultades/tables-facultades.component';
 import { TablesProfesoresComponent } from './tables-profesores/tables-profesores.component';
+import { TablesEntriesComponent } from './tables-entries/tables-entries.component';
 
 const routes: Routes = [{
   path: '',
@@ -15,6 +16,9 @@ const routes: Routes = [{
   {
     path: 'profesores',
     component: TablesProfesoresComponent,
+  },{
+    path: 'entries',
+    component: TablesEntriesComponent
   }],
 }];
 
@@ -27,5 +31,6 @@ export class TablesRoutingModule { }
 export const routedComponents = [
   TablesComponent,
   TablesFacultadesComponent,
-  TablesProfesoresComponent
+  TablesProfesoresComponent,
+  TablesEntriesComponent
 ];

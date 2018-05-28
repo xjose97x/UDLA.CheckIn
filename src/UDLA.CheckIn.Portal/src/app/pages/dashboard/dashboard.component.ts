@@ -7,11 +7,5 @@ import { FacultyService } from '../../@core/data/api';
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent {
-  constructor(private facultyService: FacultyService) {
-      
-    this.facultyService.apiFacultyGet().subscribe(
-      s => console.log(s)
-    );
-      
-   }
+  constructor() { }
 }

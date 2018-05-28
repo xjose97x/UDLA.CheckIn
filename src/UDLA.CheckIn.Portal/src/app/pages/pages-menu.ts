@@ -32,6 +32,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Profesores',
         link: '/pages/tables/profesores',
+      },
+      {
+        title: 'Ingresos',
+        link: '/pages/tables/entries'
       }
     ],
   }
