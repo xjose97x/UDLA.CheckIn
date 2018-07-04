@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using UDLA.CheckIn.Data;
-using UDLA.CheckIn.WebApi.Dto;
+using UDLA.CheckIn.Data.Entities;
+using UDLA.CheckIn.WebApi.DTOs;
 
 namespace UDLA.CheckIn.WebApi.Configuration
 {
@@ -8,7 +8,7 @@ namespace UDLA.CheckIn.WebApi.Configuration
     {
         public AutoMapperProfile()
         {
-            CreateMap<Employee, EmployeeDto>().ReverseMap();
+            CreateMap<Professor, ProfessorDto>().ReverseMap();
             CreateMap<EntryRecord, EntryRecordDto>().ReverseMap();
             CreateMap<Faculty, FacultyDto>().ReverseMap();
         }

@@ -1,13 +1,16 @@
 ﻿using AutoMapper;
 using Newtonsoft.Json;
-using UDLA.Checkin.Repository;
+using Udla.CheckIn.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Swagger;
-using UDLA.Checkin.Repository.Context;
 using Microsoft.Extensions.Configuration;
+using Udla.CheckIn.Services.Implementations;
 using Microsoft.Extensions.DependencyInjection;
+using UDLA.Checkin.Repository.Context;
+using UDLA.Checkin.Repository.Implementations;
+using UDLA.Checkin.Repository.Interfaces;
 
 namespace UDLA.CheckIn.WebApi
 {
@@ -23,12 +26,26 @@ namespace UDLA.CheckIn.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<ApplicationDbContext>(options => options.UseSqlServer(
-                Configuration.GetConnectionString("DefaultConnection"),
-                o => o.MigrationsAssembly("UDLA.CheckIn.WebApi")
-            ));
+            services.AddDbContextPool<ApplicationDbContext>(options =>
+            {
+                options.EnableSensitiveDataLogging();
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection"),
+                    o => o.MigrationsAssembly("UDLA.CheckIn.WebApi")
+                );
+            });
 
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            //Repositories
+            services.AddScoped<IEntryRecordRepository, EntryRecordRepository>();
+            services.AddScoped<IFacultyRepository, FacultyRepository>();
+            services.AddScoped<IProfessorRepository, ProfessorRepository>();
+            services.AddScoped<IScheduleRepository, ScheduleRepository>();
+
+            //Services
+            services.AddScoped<IEntryRecordService, EntryRecordService>();
+            services.AddScoped<IFacultyService, FacultyService>();
+            services.AddScoped<IProfessorService, ProfessorService>();
+            services.AddScoped<IScheduleService, ScheduleService>();
 
             services
                 .AddCors()

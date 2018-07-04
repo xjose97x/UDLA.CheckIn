@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UDLA.CheckIn.WebApi.Dto
+namespace UDLA.CheckIn.WebApi.DTOs
 {
     public class FacultyDto
     {

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UDLA.CheckIn.WebApi.Dto
+namespace UDLA.CheckIn.WebApi.DTOs
 {
-    public class EmployeeDto
+    public class ProfessorDto
     {
         public int Id { get; set; }
         [Required]

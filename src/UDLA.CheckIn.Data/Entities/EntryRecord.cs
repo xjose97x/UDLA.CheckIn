@@ -1,14 +1,15 @@
 ﻿using System;
 
-namespace UDLA.CheckIn.Data
+namespace UDLA.CheckIn.Data.Entities
 {
     public class EntryRecord : Entity
     {
-        public DateTimeOffset DateCreated { get; set; }
-        public int EmployeeId { get; set; }
-        public virtual Employee Employee { get; set; }
+        public DateTime DateCreated { get; set; }
 
-        public EntryRecord(int id, DateTimeOffset dateCreated, int employeeId)
+        public int EmployeeId { get; set; }
+        public virtual Professor Employee { get; set; }
+
+        public EntryRecord(int id, DateTime dateCreated, int employeeId)
         {
             Id = id;
             DateCreated = dateCreated;
