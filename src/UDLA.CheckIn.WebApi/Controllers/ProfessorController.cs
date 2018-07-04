@@ -22,9 +22,10 @@ namespace UDLA.CheckIn.WebApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<ProfessorDto> Get()
+        public async Task<IEnumerable<ProfessorDto>> Get()
         {
-            return mapper.Map<IEnumerable<ProfessorDto>>(professorService.Get());
+            var professors = await professorService.Get();
+            return mapper.Map<IEnumerable<ProfessorDto>>(professors);
         }
 
         [HttpGet("{id:int}")]

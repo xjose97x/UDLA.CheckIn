@@ -14,5 +14,10 @@ namespace UDLA.CheckIn.Data.Models
             GivenName = givenName;
             LastName = lastName;
         }
+
+        public Name()
+        {
+            
+        }
     }
 }

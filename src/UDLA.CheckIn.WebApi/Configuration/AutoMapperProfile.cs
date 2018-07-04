@@ -8,7 +8,10 @@ namespace UDLA.CheckIn.WebApi.Configuration
     {
         public AutoMapperProfile()
         {
-            CreateMap<Professor, ProfessorDto>().ReverseMap();
+            CreateMap<Professor, ProfessorDto>()
+                .ForMember(p => p.GivenName, opt => opt.MapFrom(src => src.Name.GivenName))
+                .ForMember(p => p.LastName, opt => opt.MapFrom(src => src.Name.LastName))
+                .ReverseMap();
             CreateMap<EntryRecord, EntryRecordDto>().ReverseMap();
             CreateMap<Faculty, FacultyDto>().ReverseMap();
         }
