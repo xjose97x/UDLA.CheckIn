@@ -7,7 +7,7 @@ namespace UDLA.CheckIn.WebApi.DTOs
     {
         public int Id { get; set; }
         [Required]
-        public DateTimeOffset? DateCreated { get; set; }
+        public DateTime? DateCreated { get; set; }
         public int EmployeeId { get; set; }
     }
 }

@@ -21,5 +21,10 @@ namespace UDLA.CheckIn.Data.Entities
             Name = name;
             FacultyId = facultyId;
         }
+
+        private Professor()
+        {
+            
+        }
     }
 }
