@@ -15,10 +15,21 @@ namespace UDLA.CheckIn.Data.Entities
         public virtual ICollection<Schedule> Schedules { get; set; }
         public virtual ICollection<EntryRecord> EntryRecords { get; set; }
 
-        public Professor(int id, Name name, int facultyId)
+        public Professor(int id, Name name, string email, string phoneNumber, int facultyId)
         {
             Id = id;
             Name = name;
+            Email = email;
+            PhoneNumber = phoneNumber;
+            FacultyId = facultyId;
+        }
+
+        //https://github.com/aspnet/EntityFrameworkCore/issues/12004#issuecomment-389715911
+        public Professor(int id, string email, string phoneNumber, int facultyId)
+        {
+            Id = id;
+            Email = email;
+            PhoneNumber = phoneNumber;
             FacultyId = facultyId;
         }
 
